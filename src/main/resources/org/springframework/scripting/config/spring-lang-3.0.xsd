@@ -54,6 +54,14 @@
 		</xsd:annotation>
 	</xsd:element>
 
+	<xsd:element name="js" type="dynamicScriptType">
+		<xsd:annotation>
+			<xsd:documentation><![CDATA[
+	A Spring bean backed by a JavaScript class definition.
+			]]></xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
 	<!-- Script Types -->
 	<xsd:complexType name="simpleScriptType">
 		<xsd:complexContent>

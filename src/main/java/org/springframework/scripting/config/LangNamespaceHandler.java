@@ -43,6 +43,7 @@ public class LangNamespaceHandler extends NamespaceHandlerSupport {
 		registerScriptBeanDefinitionParser("groovy", "org.springframework.scripting.groovy.GroovyScriptFactory");
 		registerScriptBeanDefinitionParser("jruby", "org.springframework.scripting.jruby.JRubyScriptFactory");
 		registerScriptBeanDefinitionParser("bsh", "org.springframework.scripting.bsh.BshScriptFactory");
+		registerScriptBeanDefinitionParser("js", "org.springframework.scripting.js.JavaScriptScriptFactory");
 		registerBeanDefinitionParser("defaults", new ScriptingDefaultsParser());
 	}
 
