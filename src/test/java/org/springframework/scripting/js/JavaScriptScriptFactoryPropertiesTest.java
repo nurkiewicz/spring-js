@@ -22,7 +22,7 @@ public class JavaScriptScriptFactoryPropertiesTest {
 	private HelloService helloService;
 
 	@Test
-	public void should() throws Exception {
+	public void shouldInjectDependenciesToScriptContext() throws Exception {
 		//given
 		final String name = "Tomek";
 

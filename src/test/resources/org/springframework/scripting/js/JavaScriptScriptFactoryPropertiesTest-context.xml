@@ -5,11 +5,23 @@
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.0.xsd">
 
-	<lang:js
-			id="javaScriptHelloService"
+
+	<bean id="resourceBundleMessageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="org.springframework.scripting.js.i18n.hello"/>
+	</bean>
+
+	<bean id="greatBritainLocale" class="java.util.Locale">
+		<constructor-arg value="en_GB"/>
+	</bean>
+
+	<lang:js id="javaScriptHelloService"
 			script-interfaces="org.springframework.scripting.js.HelloService"
 			script-source="/org/springframework/scripting/js/HelloService.js">
 		<lang:property name="city" value="Warsaw"/>
+		<lang:property name="locale" ref="greatBritainLocale"/>
+		<lang:property name="messages" ref="resourceBundleMessageSource"/>
 	</lang:js>
+	
+	
 
 </beans>

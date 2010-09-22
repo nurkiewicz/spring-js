@@ -40,7 +40,7 @@ public class JavaScriptScriptFactory implements ScriptFactory {
 
 	public Object getScriptedObject(ScriptSource scriptSource, Class[] actualInterfaces) throws IOException, ScriptCompilationException {
 		try {
-			return JavaScriptScriptUtils.createJavaScriptObject(scriptSource.getScriptAsString(), actualInterfaces);
+			return JavaScriptScriptUtils.createJavaScriptObject(scriptSource, actualInterfaces);
 		} catch (ScriptException e) {
 			throw new ScriptCompilationException(scriptSource, e);
 		}

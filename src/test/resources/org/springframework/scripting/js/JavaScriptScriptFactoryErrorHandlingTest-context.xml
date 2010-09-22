@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.0.xsd">
+
+	<lang:js
+			id="helloNotExistingVar"
+			script-interfaces="org.springframework.scripting.js.HelloService">
+		<lang:inline-script>
+			function hello(name) {
+				return unknownVar;
+			}
+			function helloParameterized(name, effectiveDate, age, locale) {}
+		</lang:inline-script>
+	</lang:js>
+
+	<lang:js
+			id="helloExternalException"
+			script-interfaces="org.springframework.scripting.js.HelloService">
+		<lang:inline-script>
+			function hello(name) {new java.io.FileInputStream(name);}
+			function helloParameterized(name, effectiveDate, age, locale) {}
+		</lang:inline-script>
+	</lang:js>
+
+	<lang:js
+			id="helloMissingMethod"
+			script-interfaces="org.springframework.scripting.js.HelloService">
+		<lang:inline-script>
+			function helloParameterized(name, effectiveDate, age, locale) {}
+		</lang:inline-script>
+	</lang:js>
+
+</beans>

@@ -14,5 +14,4 @@ public interface HelloService {
 
 	String helloParameterized(String name, Date effectiveDate, int age, Locale locale);
 
-	String helloToUsers(Collection<User> users);
 }
