@@ -10,12 +10,4 @@ http://www.springframework.org/schema/lang http://www.springframework.org/schema
 			script-interfaces="org.springframework.scripting.js.UserService"
 			script-source="/org/springframework/scripting/js/UserService.js"/>
 
-<!--
-	<lang:js
-			id="javaScriptUserService"
-			script-interfaces="org.springframework.scripting.js.UserService"
-			script-source="ftp://localhost/pub/UserService.js"
-			refresh-check-delay="10"/>
--->
-
 </beans>
