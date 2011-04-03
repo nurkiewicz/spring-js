@@ -30,7 +30,7 @@
 					<xsd:documentation><![CDATA[
 	Specifies the java.util.Executor instance to use when invoking asynchronous methods.
 	If not provided, an instance of org.springframework.core.task.SimpleAsyncTaskExecutor
-	will be used by default
+	will be used by default.
 					]]></xsd:documentation>
 				</xsd:annotation>
 			</xsd:attribute>
@@ -41,6 +41,39 @@
 	java.util.ScheduledExecutorService instance to use when invoking scheduled
 	methods. If no reference is provided, a TaskScheduler backed by a single
 	thread scheduled executor will be used.
+					]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="mode" default="proxy">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+	Should annotated beans be proxied using Spring's AOP framework,
+	or should they rather be weaved with an AspectJ async execution aspect?
+
+	AspectJ weaving requires spring-aspects.jar on the classpath,
+	as well as load-time weaving (or compile-time weaving) enabled.
+
+	Note: The weaving-based aspect requires the @Async annotation to be
+	defined on the concrete class. Annotations in interfaces will not work
+	in that case (they will rather only work with interface-based proxies)!
+					]]></xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="proxy"/>
+						<xsd:enumeration value="aspectj"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="proxy-target-class" type="xsd:boolean" default="false">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+	Are class-based (CGLIB) proxies to be created? By default, standard
+	Java interface-based proxies are created.
+
+	Note: Class-based proxies require the @Async annotation to be defined
+	on the concrete class. Annotations in interfaces will not work in
+	that case (they will rather only work with interface-based proxies)!
 					]]></xsd:documentation>
 				</xsd:annotation>
 			</xsd:attribute>
