@@ -1,0 +1,7 @@
+== JavaScript dynamic language support in Spring framework ==
+
+spring-context component fork allowing to write Spring beans using JavaScript. For details please refer to:
+
+* http://nurkiewicz.blogspot.com/search/label/spring-js
+* https://jira.springsource.org/browse/SPR-7592
+* http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/dynamic-language.html
